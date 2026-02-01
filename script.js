@@ -45,7 +45,7 @@ async function unlockAndScreech() {
 
 // Attach the event listener
 document.getElementById('unlockBtn').addEventListener('click', unlockAndScreech);
-=======
+
 // Toast notification
 function showToast() {
     const toast = document.getElementById("toast");
