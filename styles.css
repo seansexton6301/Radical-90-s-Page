@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 body {
   /* Option 1: Small looping shooting Mega Man GIF – paste your favorite direct .gif link here */
   background: url('https://media1.tenor.com/m/0Z6zL.gif') repeat;  /* Try this – common small animated buster shot from Tenor searches */
@@ -75,8 +75,7 @@ body::before {
 #Kirby {
   border: 2px solid red;
   border-radius: 10px;}
-=======
-/* Reset and base styles */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -213,5 +212,4 @@ footer {
 @keyframes fadeout {
     from { bottom: 40px; opacity: 1; }
     to   { bottom: 0; opacity: 0; }
->>>>>>> 5fa53212ef12286bd581140f34348343b9824d6f
 }

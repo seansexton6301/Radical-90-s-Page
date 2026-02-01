@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+HEAD
 let audioContext = null;
 let hasUnlocked = false;
 
@@ -83,4 +83,4 @@ function updateDateTime() {
 
 updateDateTime();
 setInterval(updateDateTime, 1000);
->>>>>>> 5fa53212ef12286bd581140f34348343b9824d6f
+
