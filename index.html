@@ -3,29 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Seans Radical 90s Page!!!</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Sean's Radical 90s Page!!!</title>
+   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Dial-up sound (classic 56k handshake) -->
+  <!-- Dial-up sound – working public link -->
   <audio id="dialupSound" playsinline>
-    <source src="https://orangefreesounds.com/wp-content/uploads/2014/11/Dial-up-sound.mp3" type="audio/mpeg">
-  
+    <source src="https://www.orangefreesounds.com/wp-content/uploads/2014/11/Dial-up-sound.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
   </audio>
 
   <marquee>Welcome to my awesome homepage!!! Under Construction!!!</marquee>
   <center>
     <h1><font color="aqua">Sean's Cool Zone!</font></h1>
   </center>
-  
 
-  <button id="unlockBtn">
+  <button id="unlockBtn" onclick="unlockAndScreech()">
     CLICK FOR NOSTALGIA!!
   </button>
 
   <center>
-  <div id="status">Waiting for your click... </div>
+    <div id="status">Waiting for your click... (First click unlocks audio in Chrome/Safari/Edge)</div>
   </center>
 
   <center>
@@ -41,9 +40,58 @@
   <hr noshade size="10" color="yellow">
 
   <center>
-  <img id="Kirby" src="https://media.giphy.com/media/Md5UqmyyS2dhu/giphy.gif" alt="Under Construction" width="500"></center>
-  <script src="script.js">
-    
+    <img id="Kirby" src="https://media.giphy.com/media/Md5UqmyyS2dhu/giphy.gif" alt="Under Construction" width="500">
+  </center>
+
+  <center>
+    <blink>Under Construction Since 1996</blink>
+  </center>
+
+  <script>
+    let audioContext = null;
+    let hasUnlocked = false;
+
+    async function unlockAndScreech() {
+      console.log("Button clicked!"); // Debug: open F12 console to see this
+
+      const status = document.getElementById('status');
+      const btn = document.getElementById('unlockBtn');
+
+      status.textContent = "Unlocking audio... hold on!";
+
+      if (!hasUnlocked) {
+        try {
+          audioContext = new (window.AudioContext || window.webkitAudioContext)();
+          if (audioContext.state === 'suspended') {
+            await audioContext.resume();
+          }
+          console.log("AudioContext resumed!");
+          hasUnlocked = true;
+          status.textContent = "Unlocked! Click again for the full screech...";
+          btn.textContent = "NOW PLAY THE DIAL-UP SCREECH!!! 📞🔊";
+          return; // First click just unlocks
+        } catch (err) {
+          console.error("Unlock failed:", err);
+          status.textContent = "Unlock failed — check console (F12). Try refresh or different browser.";
+          return;
+        }
+      }
+
+      // Second click: play
+      const dialup = document.getElementById('dialupSound');
+      dialup.currentTime = 0;
+
+      try {
+        await dialup.play();
+        console.log("Dial-up playing!");
+        status.textContent = "EEEE-ERRRR-KSSSHHH... connecting... 💾🌐";
+        btn.style.display = 'none'; // Hide after success
+      } catch (err) {
+        console.error("Play failed:", err);
+        status.textContent = "Play blocked — check console. Adblock? Network? Strict browser?";
+      }
+    }
   </script>
+
 </body>
 </html>
