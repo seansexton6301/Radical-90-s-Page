@@ -2,7 +2,7 @@
     body { 
       background-color: #000;
       color: lime;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
+      font-family: 'Comic Sans MS';
       text-align: center;
       margin: 0;
       padding: 20px;
@@ -18,7 +18,7 @@
       border: 5px double #00ffff;
       padding: 30px 60px;
       font-size: 32px;
-      font-family: 'Comic Sans MS', cursive;
+      font-family: 'Comic Sans MS';
       cursor: pointer;
       margin: 40px auto;
       display: block;
