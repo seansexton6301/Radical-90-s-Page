@@ -31,3 +31,9 @@
     hr { border: none; height: 10px; background: yellow; margin: 20px 0; }
     blink { color: lime; font-size: 24px; animation: blink 1s infinite; }
   
+    .important-update-box {
+  border: 10px solid red;
+  padding: 3px 8px;
+  display: inline-block;
+  background: black;
+}
